@@ -168,6 +168,8 @@ After setting up this template:
 7. Add particle effects and visual enhancements
 8. Implement game-specific features and mechanics
 
+**📋 For detailed recommendations and enhancement roadmap, see [RECOMMENDATION.md](RECOMMENDATION.md)**
+
 ## Resources
 
 - [Godot Documentation](https://docs.godotengine.org/)
