@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqxvh8y2k3m4n"]
+
+[ext_resource type="Script" uid="uid://dfgrsuosaiyr0" path="res://scripts/loading_screen.gd" id="1_loading"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_2"]
+font_size = 24
+font_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3"]
+font_size = 18
+font_color = Color(0.7, 0.7, 0.7, 1)
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_loading")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.949481, 2.21401e-05, 0.655129, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GAME TITLE"
+label_settings = SubResource("LabelSettings_1")
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "A Game Template"
+label_settings = SubResource("LabelSettings_2")
+horizontal_alignment = 1
+
+[node name="LoadingLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+label_settings = SubResource("LabelSettings_3")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
