@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fj5ey3s0vrdv"]
 
-[ext_resource type="Script" uid="uid://ccr4whlgiamha" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" uid="uid://p0ibvnygkeji" path="res://scripts/game.gd" id="1_game"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_game")
@@ -17,3 +17,18 @@ offset_right = 676.0
 offset_bottom = 334.0
 text = "Game Scene - Add your game content here!"
 horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 350.0
+offset_right = 776.0
+offset_bottom = 380.0
+text = "Press ESC to pause the game"
+horizontal_alignment = 1
+
+[node name="MovingObject" type="ColorRect" parent="."]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 150.0
+offset_bottom = 150.0
+color = Color(1, 0.5, 0, 1)

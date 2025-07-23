@@ -147,7 +147,13 @@ func _on_reset_pressed():
 
 func _on_back_pressed():
 	_play_button_sound()
-	SceneManager.change_scene("res://scenes/main_menu.tscn")
+	# Check if we should return to game or main menu
+	if get_tree().paused:
+		# We came from pause menu, return to game
+		SceneManager.change_scene("res://scenes/game.tscn")
+	else:
+		# We came from main menu, return to main menu
+		SceneManager.change_scene("res://scenes/main_menu.tscn")
 
 func _input(event):
 	# Handle Escape key to go back

@@ -73,4 +73,18 @@ func set_master_volume(volume: float):
 	sfx_player.volume_db = linear_to_db(sfx_volume * master_volume)
 
 func get_master_volume() -> float:
-	return master_volume 
+	return master_volume
+
+func pause_audio():
+	# Pause both music and SFX players
+	if music_player:
+		music_player.stream_paused = true
+	if sfx_player:
+		sfx_player.stream_paused = true
+
+func resume_audio():
+	# Resume both music and SFX players
+	if music_player:
+		music_player.stream_paused = false
+	if sfx_player:
+		sfx_player.stream_paused = false 

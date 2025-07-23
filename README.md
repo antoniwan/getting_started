@@ -32,9 +32,15 @@ This template provides a solid foundation for game development with:
   - Display settings (fullscreen, vsync)
   - UI preferences (show/hide tips, version)
   - Configurable loading time
+- **Pause System**:
+  - Professional pause menu with resume, settings, main menu, and quit options
+  - Game state preservation during pause
+  - Audio pause/resume handling
+  - Input blocking during pause
+  - Escape key toggle functionality
 - **Main Menu System**: Simple and clean menu interface with audio feedback
 - **Scene Transitions**: Smooth scene management with fade effects
-- **Input Handling**: Escape key returns to main menu from game
+- **Input Handling**: Escape key toggles pause menu in game
 - **Responsive Design**: Works with different window sizes
 - **Clean Architecture**: Well-organized code structure with singletons
 
@@ -96,7 +102,8 @@ getting_started/
 
 3. **Game Scene**:
    - Empty scene ready for your game content
-   - Press **Escape** to return to main menu
+   - Press **Escape** to pause the game
+   - Pause menu with resume, settings, main menu, and quit options
 
 ## Customization
 
@@ -133,6 +140,13 @@ Update the ColorRect colors in each scene file
 1. Create new scene files in the `scenes/` folder
 2. Add corresponding scripts in the `scripts/` folder
 3. Use `SceneManager.change_scene("path/to/scene.tscn")` to transition
+
+### Adding Pause Functionality
+
+1. Include the pause menu scene in your game scenes
+2. Use `pause_menu.show_pause_menu()` to pause
+3. Use `pause_menu.hide_pause_menu()` to resume
+4. Customize the pause menu UI as needed
 
 ### Loading Tips
 
