@@ -51,6 +51,15 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 custom_minimum_size = Vector2(0, 20)
 
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+custom_minimum_size = Vector2(0, 50)
+
+[node name="Spacer3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"

@@ -60,6 +60,10 @@ func apply_settings():
 	if AudioManager:
 		AudioManager.set_music_volume(get_setting("audio", "music_volume"))
 		AudioManager.set_sfx_volume(get_setting("audio", "sfx_volume"))
+		# Apply master volume if AudioManager supports it
+		var master_volume = get_setting("audio", "master_volume", 1.0)
+		if AudioManager.has_method("set_master_volume"):
+			AudioManager.set_master_volume(master_volume)
 	
 	# Apply display settings
 	if get_setting("game", "fullscreen"):
@@ -110,6 +114,12 @@ func get_loading_time() -> float:
 
 func set_loading_time(time: float):
 	set_setting("game", "loading_time", time)
+
+func get_master_volume() -> float:
+	return get_setting("audio", "master_volume", 1.0)
+
+func set_master_volume(volume: float):
+	set_setting("audio", "master_volume", volume)
 
 func is_fullscreen() -> bool:
 	return get_setting("game", "fullscreen")

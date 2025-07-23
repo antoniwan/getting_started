@@ -1,11 +1,13 @@
 extends Control
 
 @onready var new_game_button = $VBoxContainer/NewGameButton
+@onready var settings_button = $VBoxContainer/SettingsButton
 @onready var quit_button = $VBoxContainer/QuitButton
 
 func _ready():
 	# Connect button signals
 	new_game_button.pressed.connect(_on_new_game_pressed)
+	settings_button.pressed.connect(_on_settings_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	
 	# Try to play menu music
@@ -31,6 +33,13 @@ func _on_new_game_pressed():
 	
 	# Transition to the game scene
 	SceneManager.change_scene("res://scenes/game.tscn")
+
+func _on_settings_pressed():
+	# Play button sound
+	_play_button_sound()
+	
+	# Transition to the settings menu
+	SceneManager.change_scene("res://scenes/settings_menu.tscn")
 
 func _on_quit_pressed():
 	# Play button sound

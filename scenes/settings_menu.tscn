@@ -1,0 +1,255 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqx80a00k1m2n"]
+
+[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_settings"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1"]
+font_size = 24
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2"]
+font_size = 16
+font_color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_settings")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 0.95)
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+
+[node name="Title" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_1")
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="TabContainer" type="TabContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Audio" type="VBoxContainer" parent="MainContainer/TabContainer"]
+layout_mode = 2
+
+[node name="AudioTitle" type="Label" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+text = "Audio Settings"
+label_settings = SubResource("LabelSettings_2")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="MasterVolumeContainer" type="VBoxContainer" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="MainContainer/TabContainer/Audio/MasterVolumeContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="MainContainer/TabContainer/Audio/MasterVolumeContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MasterVolumeValue" type="Label" parent="MainContainer/TabContainer/Audio/MasterVolumeContainer"]
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 1
+
+[node name="Spacer3" type="Control" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="MusicVolumeContainer" type="VBoxContainer" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="MainContainer/TabContainer/Audio/MusicVolumeContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="MainContainer/TabContainer/Audio/MusicVolumeContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="MusicVolumeValue" type="Label" parent="MainContainer/TabContainer/Audio/MusicVolumeContainer"]
+layout_mode = 2
+text = "50%"
+horizontal_alignment = 1
+
+[node name="Spacer4" type="Control" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="SFXVolumeContainer" type="VBoxContainer" parent="MainContainer/TabContainer/Audio"]
+layout_mode = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="MainContainer/TabContainer/Audio/SFXVolumeContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="MainContainer/TabContainer/Audio/SFXVolumeContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="SFXVolumeValue" type="Label" parent="MainContainer/TabContainer/Audio/SFXVolumeContainer"]
+layout_mode = 2
+text = "70%"
+horizontal_alignment = 1
+
+[node name="Display" type="VBoxContainer" parent="MainContainer/TabContainer"]
+layout_mode = 2
+
+[node name="DisplayTitle" type="Label" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+text = "Display Settings"
+label_settings = SubResource("LabelSettings_2")
+horizontal_alignment = 1
+
+[node name="Spacer5" type="Control" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="MainContainer/TabContainer/Display/FullscreenContainer"]
+layout_mode = 2
+text = "Fullscreen"
+size_flags_horizontal = 3
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="MainContainer/TabContainer/Display/FullscreenContainer"]
+layout_mode = 2
+
+[node name="Spacer6" type="Control" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="VSyncContainer" type="HBoxContainer" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+
+[node name="VSyncLabel" type="Label" parent="MainContainer/TabContainer/Display/VSyncContainer"]
+layout_mode = 2
+text = "VSync"
+size_flags_horizontal = 3
+
+[node name="VSyncCheckBox" type="CheckBox" parent="MainContainer/TabContainer/Display/VSyncContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Spacer7" type="Control" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="LoadingTimeContainer" type="VBoxContainer" parent="MainContainer/TabContainer/Display"]
+layout_mode = 2
+
+[node name="LoadingTimeLabel" type="Label" parent="MainContainer/TabContainer/Display/LoadingTimeContainer"]
+layout_mode = 2
+text = "Loading Time (seconds)"
+horizontal_alignment = 1
+
+[node name="LoadingTimeSlider" type="HSlider" parent="MainContainer/TabContainer/Display/LoadingTimeContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.5
+value = 3.0
+
+[node name="LoadingTimeValue" type="Label" parent="MainContainer/TabContainer/Display/LoadingTimeContainer"]
+layout_mode = 2
+text = "3.0s"
+horizontal_alignment = 1
+
+[node name="UI" type="VBoxContainer" parent="MainContainer/TabContainer"]
+layout_mode = 2
+
+[node name="UITitle" type="Label" parent="MainContainer/TabContainer/UI"]
+layout_mode = 2
+text = "UI Settings"
+label_settings = SubResource("LabelSettings_2")
+horizontal_alignment = 1
+
+[node name="Spacer8" type="Control" parent="MainContainer/TabContainer/UI"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="ShowTipsContainer" type="HBoxContainer" parent="MainContainer/TabContainer/UI"]
+layout_mode = 2
+
+[node name="ShowTipsLabel" type="Label" parent="MainContainer/TabContainer/UI/ShowTipsContainer"]
+layout_mode = 2
+text = "Show Loading Tips"
+size_flags_horizontal = 3
+
+[node name="ShowTipsCheckBox" type="CheckBox" parent="MainContainer/TabContainer/UI/ShowTipsContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Spacer9" type="Control" parent="MainContainer/TabContainer/UI"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="ShowVersionContainer" type="HBoxContainer" parent="MainContainer/TabContainer/UI"]
+layout_mode = 2
+
+[node name="ShowVersionLabel" type="Label" parent="MainContainer/TabContainer/UI/ShowVersionContainer"]
+layout_mode = 2
+text = "Show Version"
+size_flags_horizontal = 3
+
+[node name="ShowVersionCheckBox" type="CheckBox" parent="MainContainer/TabContainer/UI/ShowVersionContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Spacer10" type="Control" parent="MainContainer/TabContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset to Defaults"
+
+[node name="Spacer11" type="Control" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(20, 0)
+
+[node name="BackButton" type="Button" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back" 
