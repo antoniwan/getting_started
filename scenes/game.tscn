@@ -247,3 +247,20 @@ offset_right = 200.0
 offset_bottom = 90.0
 text = "Coins: 0"
 color = Color(1, 1, 0, 1)
+
+[node name="HealthLabel" type="Label" parent="UI"]
+offset_left = 10.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 130.0
+text = "Health: 100/100"
+color = Color(1, 1, 1, 1)
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+offset_left = 10.0
+offset_top = 140.0
+offset_right = 310.0
+offset_bottom = 170.0
+max_value = 100.0
+value = 100.0
+show_percentage = false

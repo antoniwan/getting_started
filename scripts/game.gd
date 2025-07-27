@@ -3,6 +3,8 @@ extends Node2D
 @onready var player = $Player
 @onready var camera = $Camera2D
 @onready var score_label = $UI/ScoreLabel
+@onready var health_bar = $UI/HealthBar
+@onready var health_label = $UI/HealthLabel
 
 var pause_menu: Control
 var coin_count = 0
@@ -25,6 +27,9 @@ func _ready():
 	
 	# Update score display
 	_update_score_display()
+	
+	# Initialize health display
+	update_health_display(100, 100)
 
 func _create_pause_menu():
 	# Load and create the pause menu
@@ -64,6 +69,23 @@ func _on_coin_collected():
 func _update_score_display():
 	if score_label:
 		score_label.text = "Coins: " + str(coin_count)
+
+func update_health_display(current_health: int, max_health: int):
+	if health_bar:
+		health_bar.max_value = max_health
+		health_bar.value = current_health
+		
+		# Change color based on health percentage
+		var health_percentage = float(current_health) / float(max_health)
+		if health_percentage > 0.6:
+			health_bar.modulate = Color.GREEN
+		elif health_percentage > 0.3:
+			health_bar.modulate = Color.YELLOW
+		else:
+			health_bar.modulate = Color.RED
+	
+	if health_label:
+		health_label.text = "Health: " + str(current_health) + "/" + str(max_health)
 
 func _input(event):
 	# Handle input for the game scene

@@ -6,6 +6,10 @@ extends CharacterBody2D
 @export var acceleration = 1500.0
 @export var friction = 1200.0
 
+# Health system
+@export var max_health = 100
+var current_health: int
+
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -17,6 +21,10 @@ var can_double_jump = false
 var has_double_jump = false
 var is_invulnerable = false
 var invulnerability_time = 1.0
+
+func _ready():
+	current_health = max_health
+	_update_health_display()
 
 func _physics_process(delta):
 	# Add the gravity
@@ -68,11 +76,12 @@ func _play_jump_sound():
 		var jump_sound = load(jump_sound_path)
 		AudioManager.play_sound(jump_sound)
 
-func take_damage():
+func take_damage(amount: int = 20):
 	if is_invulnerable:
 		return
 		
-	print("Player took damage!")
+	print("Player took damage! Health: ", current_health, " -> ", current_health - amount)
+	current_health = max(0, current_health - amount)
 	is_invulnerable = true
 	
 	# Play damage sound
@@ -81,9 +90,29 @@ func take_damage():
 	# Visual feedback (flash effect)
 	_create_damage_effect()
 	
+	# Update health display
+	_update_health_display()
+	
+	# Check if player died
+	if current_health <= 0:
+		_die()
+	
 	# Reset invulnerability after time
 	await get_tree().create_timer(invulnerability_time).timeout
 	is_invulnerable = false
+
+func _update_health_display():
+	var game_scene = get_parent()
+	if game_scene and game_scene.has_method("update_health_display"):
+		game_scene.update_health_display(current_health, max_health)
+
+func _die():
+	print("Player died!")
+	# You can add respawn logic or game over handling here
+	# For now, just reset health
+	current_health = max_health
+	_update_health_display()
+	position = Vector2(100, 300)  # Reset position
 
 func _play_damage_sound():
 	# Try to play damage sound if available

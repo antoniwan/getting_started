@@ -39,19 +39,19 @@ func _check_player_collision():
 			_damage_player(body)
 
 func _damage_player(player):
-	# Damage the player (you can implement player health system later)
+	# Damage the player
 	print("Player hit by enemy!")
 	
 	# Play damage sound if available
 	_play_damage_sound()
 	
-	# Push the player back
+	# Damage the player
 	if player.has_method("take_damage"):
-		player.take_damage()
-	else:
-		# Simple knockback
-		player.velocity.x = direction * 200
-		player.velocity.y = -100
+		player.take_damage(20)  # Deal 20 damage
+	
+	# Push the player back
+	player.velocity.x = direction * 200
+	player.velocity.y = -100
 
 func _play_damage_sound():
 	# Try to play damage sound if available
